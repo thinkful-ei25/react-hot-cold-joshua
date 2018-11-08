@@ -4,11 +4,22 @@ import GuessForm from './guess-form';
 
 import './guess-section.css';
 
+
+
 export default function GuessSection(props) {
+    const userGuess = function(input){
+        console.log(input);
+        props.userGuess(input);
+    }
     return (
         <section>
             <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm />
+            <GuessForm 
+                onSubmit={(input) => {
+                    userGuess(input);
+                }
+            }
+            />
         </section>
     );
 }
